@@ -25,6 +25,8 @@
 		3097B2CE22F0B55A00EAC6DA /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B2CD22F0B55A00EAC6DA /* MovieDetailPresenter.swift */; };
 		3097B2D022F0B56B00EAC6DA /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B2CF22F0B56B00EAC6DA /* MovieDetailModel.swift */; };
 		3097B2D222F0B57B00EAC6DA /* MovieDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B2D122F0B57B00EAC6DA /* MovieDetailRouter.swift */; };
+		3097B2DA22F1003500EAC6DA /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097B2D822F1003500EAC6DA /* Alamofire.framework */; };
+		3097B2DB22F1003500EAC6DA /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3097B2D922F1003500EAC6DA /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		3097B2CD22F0B55A00EAC6DA /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
 		3097B2CF22F0B56B00EAC6DA /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
 		3097B2D122F0B57B00EAC6DA /* MovieDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRouter.swift; sourceTree = "<group>"; };
+		3097B2D822F1003500EAC6DA /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		3097B2D922F1003500EAC6DA /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3097B2DA22F1003500EAC6DA /* Alamofire.framework in Frameworks */,
+				3097B2DB22F1003500EAC6DA /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +72,7 @@
 			children = (
 				3097B29522F099E100EAC6DA /* Movies_Viper */,
 				3097B29422F099E100EAC6DA /* Products */,
+				3097B2D722F1003500EAC6DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -239,6 +246,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		3097B2D722F1003500EAC6DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3097B2D822F1003500EAC6DA /* Alamofire.framework */,
+				3097B2D922F1003500EAC6DA /* Kingfisher.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -249,6 +265,7 @@
 				3097B28F22F099E100EAC6DA /* Sources */,
 				3097B29022F099E100EAC6DA /* Frameworks */,
 				3097B29122F099E100EAC6DA /* Resources */,
+				3097B2D422F0FF8D00EAC6DA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -305,6 +322,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3097B2D422F0FF8D00EAC6DA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3097B28F22F099E100EAC6DA /* Sources */ = {
@@ -472,6 +511,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KQYQQBRTJY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Movies_Viper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,6 +533,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KQYQQBRTJY;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Movies_Viper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
