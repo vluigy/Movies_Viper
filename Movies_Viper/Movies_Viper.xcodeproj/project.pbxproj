@@ -14,6 +14,8 @@
 		3096D04222F1040C008C404D /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04122F1040C008C404D /* ServerResponse.swift */; };
 		3096D04422F14CD0008C404D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04322F14CD0008C404D /* Messages.swift */; };
 		3096D04722F160D0008C404D /* MoviesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04622F160D0008C404D /* MoviesDataModel.swift */; };
+		3096D04A22F1FD31008C404D /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04822F1FD31008C404D /* MoviesCollectionViewCell.swift */; };
+		3096D04B22F1FD31008C404D /* MoviesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3096D04922F1FD31008C404D /* MoviesCollectionViewCell.xib */; };
 		3097B29722F099E100EAC6DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B29622F099E100EAC6DA /* AppDelegate.swift */; };
 		3097B29922F099E100EAC6DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B29822F099E100EAC6DA /* ViewController.swift */; };
 		3097B29C22F099E100EAC6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3097B29A22F099E100EAC6DA /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		3096D04122F1040C008C404D /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		3096D04322F14CD0008C404D /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		3096D04622F160D0008C404D /* MoviesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataModel.swift; sourceTree = "<group>"; };
+		3096D04822F1FD31008C404D /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		3096D04922F1FD31008C404D /* MoviesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesCollectionViewCell.xib; sourceTree = "<group>"; };
 		3097B29322F099E100EAC6DA /* Movies_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3097B29622F099E100EAC6DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3097B29822F099E100EAC6DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				3097B2C522F0B3FE00EAC6DA /* MoviesListViewController.swift */,
+				3096D04822F1FD31008C404D /* MoviesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 		3097B2B122F0AABC00EAC6DA /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				3096D04922F1FD31008C404D /* MoviesCollectionViewCell.xib */,
 				3097B2B522F0B05E00EAC6DA /* Movies.storyboard */,
 			);
 			path = AppUI;
@@ -353,6 +359,7 @@
 			files = (
 				3097B2A122F099E300EAC6DA /* LaunchScreen.storyboard in Resources */,
 				3097B29E22F099E300EAC6DA /* Assets.xcassets in Resources */,
+				3096D04B22F1FD31008C404D /* MoviesCollectionViewCell.xib in Resources */,
 				3097B29C22F099E100EAC6DA /* Main.storyboard in Resources */,
 				3097B2B622F0B05E00EAC6DA /* Movies.storyboard in Resources */,
 			);
@@ -400,6 +407,7 @@
 				3097B2CA22F0B53100EAC6DA /* MovieDetailViewController.swift in Sources */,
 				3097B29722F099E100EAC6DA /* AppDelegate.swift in Sources */,
 				3097B2D222F0B57B00EAC6DA /* MovieDetailRouter.swift in Sources */,
+				3096D04A22F1FD31008C404D /* MoviesCollectionViewCell.swift in Sources */,
 				3097B2B422F0AC8300EAC6DA /* Constants.swift in Sources */,
 				3096D04022F103D9008C404D /* ModelResponse.swift in Sources */,
 				3096D04222F1040C008C404D /* ServerResponse.swift in Sources */,

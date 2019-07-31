@@ -29,8 +29,8 @@ class NoticePresenter:ViewToPresenterProtocol {
 
 extension NoticePresenter: InteractorToPresenterProtocol{
     
-    func noticeFetchedSuccess(noticeModelArray: Array<MoviesList>) {
-        view?.showNotice(noticeArray: noticeModelArray)
+    func moviesFetchedSuccess(moviesModelArray: Array<MoviesList>) {
+        view?.showMovies(movies: moviesModelArray)
     }
     
     func noticeFetchFailed() {

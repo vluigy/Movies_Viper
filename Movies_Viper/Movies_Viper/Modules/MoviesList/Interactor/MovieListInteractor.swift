@@ -34,7 +34,7 @@ class NoticeInteractor: PresenterToInteractorProtocol{
             guard let _ = self else {return}
             switch response {
             case .success(let result):
-                self?.presenter?.noticeFetchedSuccess(noticeModelArray: result.results)
+                self?.presenter?.moviesFetchedSuccess(moviesModelArray: result.results)
                 break
             case .error(_):
                 self?.presenter?.noticeFetchFailed()

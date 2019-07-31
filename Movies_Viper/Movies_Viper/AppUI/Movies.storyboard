@@ -18,21 +18,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRv-8K-AuE">
-                                <rect key="frame" x="140" y="283" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ldw-uq-Gza">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zba-Wz-haa">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moviesCollectionView" id="fbv-tg-Ego">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="tkc-QZ-Xo8" id="d8c-Xs-s0s"/>
+                                    <outlet property="delegate" destination="tkc-QZ-Xo8" id="BXM-q0-7Ou"/>
+                                </connections>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1U-Ct-fIr">
+                                <rect key="frame" x="20" y="59" width="100" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="2dd-nF-xLl"/>
+                                    <constraint firstAttribute="height" constant="21" id="mbh-ki-ioG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ldw-uq-Gza" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" id="BiC-OP-7re"/>
+                            <constraint firstItem="e1U-Ct-fIr" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="15" id="DFt-Sy-gXW"/>
+                            <constraint firstItem="54k-dM-inJ" firstAttribute="bottom" secondItem="Ldw-uq-Gza" secondAttribute="bottom" id="NGy-V8-g8c"/>
+                            <constraint firstItem="Ldw-uq-Gza" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="60" id="P5X-kr-nDs"/>
+                            <constraint firstItem="e1U-Ct-fIr" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" constant="20" id="R6E-AA-iKD"/>
+                            <constraint firstItem="54k-dM-inJ" firstAttribute="trailing" secondItem="Ldw-uq-Gza" secondAttribute="trailing" id="uJW-xJ-TxU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="54k-dM-inJ"/>
                     </view>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="Ldw-uq-Gza" id="IAn-Ve-b8l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaL-6K-eHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="19"/>
+            <point key="canvasLocation" x="960.86956521739137" y="18.75"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="QZN-lm-8Xq">
@@ -47,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmB-hT-k5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="21"/>
+            <point key="canvasLocation" x="1705.7971014492755" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
