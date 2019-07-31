@@ -7,3 +7,35 @@
 //
 
 import Foundation
+import UIKit
+
+class NoticeRouter:PresenterToRouterProtocol{
+    
+    static func createModule() -> MoviesListViewController {
+        let storyBoard = UIStoryboard(name: "Movies", bundle: nil)
+        let view = storyBoard.instantiateViewController(withIdentifier: "MoviesList") as! MoviesListViewController
+        let presenter: ViewToPresenterProtocol & InteractorToPresenterProtocol = NoticePresenter()
+        let interactor: PresenterToInteractorProtocol = NoticeInteractor()
+        let router:PresenterToRouterProtocol = NoticeRouter()
+        
+        view.presentor = presenter
+        presenter.view = view
+        presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
+        
+        return view
+        
+    }
+    
+    static var mainstoryboard: UIStoryboard{
+        return UIStoryboard(name:"Main",bundle: Bundle.main)
+    }
+    
+    func pushToMovieScreen(navigationConroller navigationController:UINavigationController) {
+        print("push model")
+//        let movieModue = MovieRouter.createMovieModule()
+//        navigationController.pushViewController(movieModue,animated: true)
+    }
+    
+}

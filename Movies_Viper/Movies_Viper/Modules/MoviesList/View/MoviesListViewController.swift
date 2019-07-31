@@ -9,22 +9,33 @@
 import UIKit
 
 class MoviesListViewController: UIViewController {
-
+    
+    var presentor:ViewToPresenterProtocol?
+    
+    @IBOutlet weak var uiTableView: UITableView!
+    var noticeArrayList:[MoviesList] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Movies"
+        presentor?.startFetchingNotice()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MoviesListViewController:PresenterToViewProtocol{
+    
+    func showNotice(noticeArray: [MoviesList]) {
+        self.noticeArrayList = noticeArray
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func showError() {
+        let alert = UIAlertController(title: "Alert", message: "Problem Fetching Notice", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
+    
+    
 }
+
+
+

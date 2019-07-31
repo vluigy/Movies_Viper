@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3096D03A22F103A5008C404D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03922F103A5008C404D /* Connection.swift */; };
+		3096D03C22F103B5008C404D /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03B22F103B5008C404D /* ConnectionResponse.swift */; };
+		3096D03E22F103CC008C404D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03D22F103CC008C404D /* Endpoint.swift */; };
+		3096D04022F103D9008C404D /* ModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03F22F103D9008C404D /* ModelResponse.swift */; };
+		3096D04222F1040C008C404D /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04122F1040C008C404D /* ServerResponse.swift */; };
+		3096D04422F14CD0008C404D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04322F14CD0008C404D /* Messages.swift */; };
+		3096D04722F160D0008C404D /* MoviesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04622F160D0008C404D /* MoviesDataModel.swift */; };
 		3097B29722F099E100EAC6DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B29622F099E100EAC6DA /* AppDelegate.swift */; };
 		3097B29922F099E100EAC6DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B29822F099E100EAC6DA /* ViewController.swift */; };
 		3097B29C22F099E100EAC6DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3097B29A22F099E100EAC6DA /* Main.storyboard */; };
@@ -30,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3096D03922F103A5008C404D /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		3096D03B22F103B5008C404D /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
+		3096D03D22F103CC008C404D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		3096D03F22F103D9008C404D /* ModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelResponse.swift; sourceTree = "<group>"; };
+		3096D04122F1040C008C404D /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		3096D04322F14CD0008C404D /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		3096D04622F160D0008C404D /* MoviesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataModel.swift; sourceTree = "<group>"; };
 		3097B29322F099E100EAC6DA /* Movies_Viper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies_Viper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3097B29622F099E100EAC6DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3097B29822F099E100EAC6DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +81,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3096D03822F10348008C404D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3096D03922F103A5008C404D /* Connection.swift */,
+				3096D03B22F103B5008C404D /* ConnectionResponse.swift */,
+				3096D03D22F103CC008C404D /* Endpoint.swift */,
+				3096D03F22F103D9008C404D /* ModelResponse.swift */,
+				3096D04122F1040C008C404D /* ServerResponse.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3096D04522F14CD5008C404D /* Static */ = {
+			isa = PBXGroup;
+			children = (
+				3096D04322F14CD0008C404D /* Messages.swift */,
+			);
+			path = Static;
+			sourceTree = "<group>";
+		};
 		3097B28A22F099E100EAC6DA = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +121,8 @@
 		3097B29522F099E100EAC6DA /* Movies_Viper */ = {
 			isa = PBXGroup;
 			children = (
+				3096D04522F14CD5008C404D /* Static */,
+				3096D03822F10348008C404D /* Services */,
 				3097B2B222F0AC5500EAC6DA /* Constants */,
 				3097B2B122F0AABC00EAC6DA /* AppUI */,
 				3097B2A822F0AA1800EAC6DA /* Modules */,
@@ -147,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				3097B2BD22F0B1C900EAC6DA /* MoviesListModel.swift */,
+				3096D04622F160D0008C404D /* MoviesDataModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -352,17 +389,24 @@
 			files = (
 				3097B2CE22F0B55A00EAC6DA /* MovieDetailPresenter.swift in Sources */,
 				3097B2C822F0B51400EAC6DA /* MoviesListRouter.swift in Sources */,
+				3096D03C22F103B5008C404D /* ConnectionResponse.swift in Sources */,
 				3097B2BE22F0B1C900EAC6DA /* MoviesListModel.swift in Sources */,
 				3097B2C422F0B38E00EAC6DA /* MovieListPresenter.swift in Sources */,
 				3097B2C222F0B37C00EAC6DA /* MovieListInteractor.swift in Sources */,
 				3097B2C022F0B35900EAC6DA /* MoviesProtocol.swift in Sources */,
 				3097B29922F099E100EAC6DA /* ViewController.swift in Sources */,
+				3096D03A22F103A5008C404D /* Connection.swift in Sources */,
 				3097B2D022F0B56B00EAC6DA /* MovieDetailModel.swift in Sources */,
 				3097B2CA22F0B53100EAC6DA /* MovieDetailViewController.swift in Sources */,
 				3097B29722F099E100EAC6DA /* AppDelegate.swift in Sources */,
 				3097B2D222F0B57B00EAC6DA /* MovieDetailRouter.swift in Sources */,
 				3097B2B422F0AC8300EAC6DA /* Constants.swift in Sources */,
+				3096D04022F103D9008C404D /* ModelResponse.swift in Sources */,
+				3096D04222F1040C008C404D /* ServerResponse.swift in Sources */,
+				3096D04722F160D0008C404D /* MoviesDataModel.swift in Sources */,
 				3097B2CC22F0B54900EAC6DA /* MovieDetailInteractor.swift in Sources */,
+				3096D04422F14CD0008C404D /* Messages.swift in Sources */,
+				3096D03E22F103CC008C404D /* Endpoint.swift in Sources */,
 				3097B2C622F0B3FE00EAC6DA /* MoviesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,7 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KQYQQBRTJY;
+				DEVELOPMENT_TEAM = UCY7DTWHCV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -532,7 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KQYQQBRTJY;
+				DEVELOPMENT_TEAM = UCY7DTWHCV;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
