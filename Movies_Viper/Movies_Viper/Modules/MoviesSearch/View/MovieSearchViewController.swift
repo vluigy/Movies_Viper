@@ -78,6 +78,7 @@ extension MovieSearchViewController: UISearchBarDelegate{
         presentor?.startFetchingNotice(title: escapedString!)
         }
     }
+
 }
 
 extension MovieSearchViewController:UITableViewDelegate, UITableViewDataSource{
