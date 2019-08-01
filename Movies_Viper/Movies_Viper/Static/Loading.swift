@@ -164,7 +164,7 @@ public class Loading: UIView {
         let token = UUID().uuidString
         delayedTokens.append(token)
         Loading.sharedInstance.delay(delay, completion: {
-            if let index = delayedTokens.index(of: token) {
+            if let index = delayedTokens.firstIndex(of: token) {
                 delayedTokens.remove(at: index)
                 _ = Loading.show(title, animated: animated)
             }

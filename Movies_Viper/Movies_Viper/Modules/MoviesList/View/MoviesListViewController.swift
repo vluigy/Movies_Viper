@@ -10,12 +10,15 @@ import UIKit
 import Kingfisher
 
 class MoviesListViewController: UIViewController {
+    
+    @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var tryAgainButton: UIButton!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     var presentor:ViewToPresenterProtocol?
     var refreshControl = UIRefreshControl()
     var moviesList:[MoviesList] = []
     let cellIdentifier = "moviesCell"
+    
     override func viewDidLoad() {
        super.viewDidLoad()
        self.hideOrShowElements(state: true)
@@ -26,6 +29,9 @@ class MoviesListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         moviesCollectionView.addSubview(refreshControl)
         presentor?.startFetchingNotice()
+        let image = UIImage(named: "search")?.withRenderingMode(.alwaysTemplate)
+        searchButton.setImage(image, for: .normal)
+        searchButton.tintColor = UIColor.orange
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,10 +47,14 @@ class MoviesListViewController: UIViewController {
         presentor?.startFetchingNotice()
     }
     
+    @IBAction func searchButtonAction(_ sender: Any) {
+        let route =  SearchRouter.createModule()
+        route.presentor?.showMovieController(navigationController: navigationController!,title: "")
+    }
+    
     func hideOrShowElements(state:Bool){
         self.moviesCollectionView.isHidden = state
         self.tryAgainButton.isHidden = !state
-        
     }
     
 }

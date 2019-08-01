@@ -28,10 +28,7 @@ class NoticeRouter:PresenterToRouterProtocol{
         
     }
     
-    static var mainstoryboard: UIStoryboard{
-        return UIStoryboard(name:"Main",bundle: Bundle.main)
-    }
-    
+
     func pushToMovieScreen(navigationConroller navigationController:UINavigationController,id:Int) {
         let movieModue = MovieRouter.createMovieModule(id:id)
         navigationController.pushViewController(movieModue,animated: true)

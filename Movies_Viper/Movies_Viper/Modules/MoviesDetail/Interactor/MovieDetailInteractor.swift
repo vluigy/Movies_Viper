@@ -42,8 +42,6 @@ class MovieInteractor:PresenterToInteractorMovieProtocol{
                 if localDetail.count > 0{
                     self?.presenter?.movieFetchSuccess(movieDetailInteractor: localDetail[0])
                 }else{
-                    print("result error")
-                    print(result)
                     self?.presenter?.movieFetchFailed(error: result.message + " " + result.code)
                 }
                 break
@@ -52,8 +50,8 @@ class MovieInteractor:PresenterToInteractorMovieProtocol{
     }
     
     func getDetailRequest(id:Int, completion: @escaping (_ response: ModelResponse<MovieDetail>) -> Void) {
-        let values = ["id": id]
-        Connection.send(endpoint: MoviesDetailAction.getMovieDetail, values: values as [String: AnyObject]) { (response) in
+        let values = ["id": id] as [String : Any]
+        Connection.send(endpoint: MoviesDetailAction.getMovieDetail, values: values) { (response) in
             switch response {
             case .success(let result):
                 do {

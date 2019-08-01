@@ -65,6 +65,20 @@
                                     <action selector="tryAgainButtonAction:" destination="tkc-QZ-Xo8" eventType="touchUpInside" id="z1V-mg-wqf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xo4-BS-BVf">
+                                <rect key="frame" x="349" y="52" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="1u7-MY-gi4"/>
+                                    <constraint firstAttribute="height" constant="35" id="crn-8A-nck"/>
+                                </constraints>
+                                <color key="tintColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="search">
+                                    <color key="titleColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonAction:" destination="tkc-QZ-Xo8" eventType="touchUpInside" id="vrd-QF-6zz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -72,15 +86,18 @@
                             <constraint firstItem="Ldw-uq-Gza" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" id="BiC-OP-7re"/>
                             <constraint firstItem="e1U-Ct-fIr" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="15" id="DFt-Sy-gXW"/>
                             <constraint firstItem="54k-dM-inJ" firstAttribute="bottom" secondItem="Ldw-uq-Gza" secondAttribute="bottom" id="NGy-V8-g8c"/>
+                            <constraint firstItem="Xo4-BS-BVf" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="8" id="OnC-W5-5Xm"/>
                             <constraint firstItem="Ldw-uq-Gza" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="60" id="P5X-kr-nDs"/>
                             <constraint firstItem="e1U-Ct-fIr" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" constant="20" id="R6E-AA-iKD"/>
                             <constraint firstItem="nEj-l3-34D" firstAttribute="centerX" secondItem="Q5d-zq-Ipw" secondAttribute="centerX" id="Z6k-pD-1RM"/>
+                            <constraint firstItem="54k-dM-inJ" firstAttribute="trailing" secondItem="Xo4-BS-BVf" secondAttribute="trailing" constant="30" id="dlf-h5-p6q"/>
                             <constraint firstItem="54k-dM-inJ" firstAttribute="trailing" secondItem="Ldw-uq-Gza" secondAttribute="trailing" id="uJW-xJ-TxU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="54k-dM-inJ"/>
                     </view>
                     <connections>
                         <outlet property="moviesCollectionView" destination="Ldw-uq-Gza" id="IAn-Ve-b8l"/>
+                        <outlet property="searchButton" destination="Xo4-BS-BVf" id="Nc1-0L-uBh"/>
                         <outlet property="tryAgainButton" destination="nEj-l3-34D" id="Se8-2C-Yba"/>
                     </connections>
                 </viewController>
@@ -270,5 +287,55 @@
             </objects>
             <point key="canvasLocation" x="1877" y="19"/>
         </scene>
+        <!--Movie Search View Controller-->
+        <scene sceneID="jwD-nn-EA6">
+            <objects>
+                <viewController storyboardIdentifier="MoviesSearch" id="GRV-ir-IYI" customClass="MovieSearchViewController" customModule="Movies_Viper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uVV-hu-yhV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="search movie" translatesAutoresizingMaskIntoConstraints="NO" id="Rlb-Wa-RyY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D37-WW-YhQ">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GRV-ir-IYI" id="Kpb-67-ySw"/>
+                                    <outlet property="delegate" destination="GRV-ir-IYI" id="ser-tg-Sup"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Ir-yI-0Dk" firstAttribute="bottom" secondItem="D37-WW-YhQ" secondAttribute="bottom" id="597-ai-XvP"/>
+                            <constraint firstItem="D37-WW-YhQ" firstAttribute="top" secondItem="Rlb-Wa-RyY" secondAttribute="bottom" id="HQo-DN-JeZ"/>
+                            <constraint firstItem="Rlb-Wa-RyY" firstAttribute="trailing" secondItem="9Ir-yI-0Dk" secondAttribute="trailing" id="cMc-G8-lJK"/>
+                            <constraint firstItem="Rlb-Wa-RyY" firstAttribute="leading" secondItem="9Ir-yI-0Dk" secondAttribute="leading" id="mC6-W2-apj"/>
+                            <constraint firstItem="9Ir-yI-0Dk" firstAttribute="trailing" secondItem="D37-WW-YhQ" secondAttribute="trailing" id="n2G-wg-oRr"/>
+                            <constraint firstItem="D37-WW-YhQ" firstAttribute="leading" secondItem="9Ir-yI-0Dk" secondAttribute="leading" id="x1F-y3-KQQ"/>
+                            <constraint firstItem="Rlb-Wa-RyY" firstAttribute="top" secondItem="9Ir-yI-0Dk" secondAttribute="top" id="yjJ-sx-2fh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Ir-yI-0Dk"/>
+                    </view>
+                    <connections>
+                        <outlet property="moviesTableView" destination="D37-WW-YhQ" id="ALI-KM-7yD"/>
+                        <outlet property="searchBar" destination="Rlb-Wa-RyY" id="wHU-OJ-9hp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIT-xV-oL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2693" y="19"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="search" width="30.5" height="30.5"/>
+    </resources>
 </document>

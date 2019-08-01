@@ -35,6 +35,10 @@ class MovieDetailViewController: UIViewController {
         moviePresenter?.startFetchingMovie(id: id)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.isNavigationBarHidden = false
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }

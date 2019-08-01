@@ -14,7 +14,7 @@ import Alamofire
 class Connection {
     static var DOMAIN: String?
     
-    static func send(endpoint: Endpoint, values: [String: AnyObject]?, completion: @escaping (ConnectionResponse) -> Void) {
+    static func send(endpoint: Endpoint, values: [String: Any]?, completion: @escaping (ConnectionResponse) -> Void) {
         var url = URL(string: "\(endpoint.base)\(endpoint.path)")
         guard let cookies = HTTPCookieStorage.shared.cookies else {return}
         
@@ -27,11 +27,17 @@ class Connection {
             "Content-Type": "application/x-www-form-urlencoded",
             "Cookie": cookiesHeader
         ]
-        
-        if values!.count > 0{
-            let path = "movie/\(values!["id"] ?? 0 as AnyObject)?\(apiKey)&append_to_response=credits"
-           url = URL(string: "\(endpoint.base)\(path)")
+       //https://api.themoviedb.org/3/search/movie?api_key=b3f734c1d096f6c06fadf106c5f14e29&query=the+avengers
+        if values?.count ?? 0 > 0{
+            if values!.first!.key == "title"{
+                let path = "search/movie?\(apiKey)&query=\((values!["title"] ?? 0 as AnyObject))"
+                url = URL(string: "\(endpoint.base)\(path)")
+            }else  if values!.first!.key == "id"{
+                let path = "movie/\(values!["id"] ?? 0 as AnyObject)?\(apiKey)&append_to_response=credits"
+                url = URL(string: "\(endpoint.base)\(path)")
+            }
         }
+
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -40,19 +46,14 @@ class Connection {
         //request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         Alamofire.request(request)
             .responseJSON { (response) in
-                print("send2")
-                //debugPrint(response)
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if response.response != nil {
                     if response.error == nil{
                         let httpResponse = response.response
                         if httpResponse!.statusCode == 200 {
-                            print("Success: \(url!)")
                             if response.data!.count > 0 {
-                                print("ok")
                                 completion(.success(result: response.data!))
                             } else {
-                                print("invalid")
                                 completion(.invalidData)
                             }
                         } else {
@@ -61,7 +62,7 @@ class Connection {
                         }
                     }
                 }else{
-                    let httpResponse = response.result
+                    _ = response.result
                     //print("Failure no connection: \(String(describing: httpResponse.error))")
                     completion(.responseUnsuccessful(code: -1009))
                 }
