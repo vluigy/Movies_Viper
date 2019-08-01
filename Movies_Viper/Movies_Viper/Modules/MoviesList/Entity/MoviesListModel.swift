@@ -11,11 +11,13 @@ import Foundation
 struct MoviesList: Codable {
     let id: Int
     let title: String
-    let posterPath: String
+    let posterPath: String?
     let originalTitle: String
     let overview: String
     let releaseDate: String
-    
+    var posterImageUrl: String {
+        return "https://image.tmdb.org/t/p/w300/\(posterPath ?? "")"
+    }
     private enum CodingKeys: CodingKey {
         case id
         case title
@@ -29,7 +31,7 @@ struct MoviesList: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
         self.title = try container.decode(String.self, forKey: .title)
-        self.posterPath = try container.decode(String.self, forKey: .poster_path)
+        self.posterPath = try container.decodeIfPresent(String.self, forKey: .poster_path)
         self.originalTitle = try container.decode(String.self, forKey: .original_title)
         self.overview = try container.decode(String.self, forKey: .overview)
         self.releaseDate = try container.decode(String.self, forKey: .release_date)

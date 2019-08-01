@@ -69,9 +69,14 @@ extension MovieDetailViewController:PresenterToViewMovieProtocol{
         var director = ""
         self.detailMovie = movieDetailModel
         self.summaryTextView.text = detailMovie?.overview
-        let imageURL = URL(string: apiPathImages+detailMovie!.posterPath)
-        posterImageView.kf.indicatorType = .activity
-        posterImageView.kf.setImage(with: imageURL)
+        let imageURL = URL(string: detailMovie?.backdropImageUrl ?? "")
+        
+        posterImageView.kf.setImage(
+            with: imageURL,
+            placeholder: UIImage(named: "icon"),
+            options: [.transition(.fade(0)), .loadDiskFileSynchronously]
+        )
+        
         detailMovie?.credits.cast.forEach({ (item) in
             if item.order <= 2{
                 cast += item.name

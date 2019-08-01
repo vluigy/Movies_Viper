@@ -80,9 +80,12 @@ extension MoviesListViewController: UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let row = self.moviesList[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! MoviesCollectionViewCell
-        let imageURL = URL(string: apiPathImages+row.posterPath)
-        cell.movieImageView.kf.indicatorType = .activity
-        cell.movieImageView.kf.setImage(with: imageURL)
+        let imageURL = URL(string: row.posterImageUrl)
+        cell.movieImageView.kf.setImage(
+            with: imageURL,
+            placeholder: UIImage(named: "icon"),
+            options: [.transition(.fade(0)), .loadDiskFileSynchronously]
+        )
         return cell
     }
     

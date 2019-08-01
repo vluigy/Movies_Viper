@@ -36,8 +36,8 @@ class Connection {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         request.timeoutInterval = 15
-        // request.cachePolicy = .useProtocolCachePolicy
-        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        request.cachePolicy = .useProtocolCachePolicy
+        //request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         Alamofire.request(request)
             .responseJSON { (response) in
                 print("send2")
