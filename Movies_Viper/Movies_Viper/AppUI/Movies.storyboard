@@ -52,20 +52,36 @@
                                 <color key="textColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEj-l3-34D">
+                                <rect key="frame" x="157" y="433" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="RQ6-E2-l0M"/>
+                                </constraints>
+                                <state key="normal" title="Try Again">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="tryAgainButtonAction:" destination="tkc-QZ-Xo8" eventType="touchUpInside" id="z1V-mg-wqf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="nEj-l3-34D" firstAttribute="centerY" secondItem="Q5d-zq-Ipw" secondAttribute="centerY" id="0mP-Aa-qBt"/>
                             <constraint firstItem="Ldw-uq-Gza" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" id="BiC-OP-7re"/>
                             <constraint firstItem="e1U-Ct-fIr" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="15" id="DFt-Sy-gXW"/>
                             <constraint firstItem="54k-dM-inJ" firstAttribute="bottom" secondItem="Ldw-uq-Gza" secondAttribute="bottom" id="NGy-V8-g8c"/>
                             <constraint firstItem="Ldw-uq-Gza" firstAttribute="top" secondItem="54k-dM-inJ" secondAttribute="top" constant="60" id="P5X-kr-nDs"/>
                             <constraint firstItem="e1U-Ct-fIr" firstAttribute="leading" secondItem="54k-dM-inJ" secondAttribute="leading" constant="20" id="R6E-AA-iKD"/>
+                            <constraint firstItem="nEj-l3-34D" firstAttribute="centerX" secondItem="Q5d-zq-Ipw" secondAttribute="centerX" id="Z6k-pD-1RM"/>
                             <constraint firstItem="54k-dM-inJ" firstAttribute="trailing" secondItem="Ldw-uq-Gza" secondAttribute="trailing" id="uJW-xJ-TxU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="54k-dM-inJ"/>
                     </view>
                     <connections>
                         <outlet property="moviesCollectionView" destination="Ldw-uq-Gza" id="IAn-Ve-b8l"/>
+                        <outlet property="tryAgainButton" destination="nEj-l3-34D" id="Se8-2C-Yba"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaL-6K-eHg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -202,14 +218,27 @@
                                             <constraint firstItem="9WQ-k6-cqg" firstAttribute="top" secondItem="VZd-8C-RJe" secondAttribute="bottom" constant="10" id="wpb-kH-teq"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-aW-cXR">
+                                        <rect key="frame" x="157" y="394" width="100" height="30"/>
+                                        <color key="backgroundColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="pN7-pg-nlc"/>
+                                        </constraints>
+                                        <state key="normal" title="Try Again"/>
+                                        <connections>
+                                            <action selector="tryAgainAction:" destination="pc4-NM-iLK" eventType="touchUpInside" id="9Cb-u0-uHi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="z0e-aW-cXR" firstAttribute="centerY" secondItem="huW-mb-tgF" secondAttribute="centerY" id="1b4-rO-6Q4"/>
                                     <constraint firstItem="buq-b8-0Nh" firstAttribute="centerY" secondItem="huW-mb-tgF" secondAttribute="centerY" id="464-7W-xXs"/>
                                     <constraint firstItem="buq-b8-0Nh" firstAttribute="top" secondItem="huW-mb-tgF" secondAttribute="top" id="8Vd-Rw-qmJ"/>
                                     <constraint firstItem="buq-b8-0Nh" firstAttribute="centerX" secondItem="huW-mb-tgF" secondAttribute="centerX" id="S0s-fM-YPM"/>
                                     <constraint firstAttribute="bottom" secondItem="buq-b8-0Nh" secondAttribute="bottom" id="VIB-h3-DGg"/>
                                     <constraint firstAttribute="trailing" secondItem="buq-b8-0Nh" secondAttribute="trailing" id="jgN-zr-PHd"/>
+                                    <constraint firstItem="z0e-aW-cXR" firstAttribute="centerX" secondItem="huW-mb-tgF" secondAttribute="centerX" id="mEl-1w-jBM"/>
                                     <constraint firstItem="buq-b8-0Nh" firstAttribute="leading" secondItem="huW-mb-tgF" secondAttribute="leading" id="vV6-Vc-7sg"/>
                                 </constraints>
                             </scrollView>
@@ -226,10 +255,15 @@
                     <navigationItem key="navigationItem" id="m9Y-2g-T8j"/>
                     <connections>
                         <outlet property="castLabel" destination="9WQ-k6-cqg" id="nHW-d4-jds"/>
+                        <outlet property="castTitleLabel" destination="VZd-8C-RJe" id="4Na-rt-nwf"/>
                         <outlet property="directorLabel" destination="d71-WN-qz7" id="NL4-rz-4nI"/>
+                        <outlet property="directorTitleLabel" destination="QPH-Gx-51B" id="Add-Vw-G8F"/>
                         <outlet property="posterImageView" destination="Cvl-TH-dpe" id="pg5-cC-Xyh"/>
                         <outlet property="summaryTextView" destination="qoP-Yl-7F3" id="DAc-5p-E4a"/>
+                        <outlet property="summaryTitleLabel" destination="5fH-rR-tUA" id="XU0-R4-k9U"/>
+                        <outlet property="tryAgainButton" destination="z0e-aW-cXR" id="mwF-Tu-n13"/>
                         <outlet property="yearLabel" destination="si8-QU-MFf" id="bO0-pG-ueN"/>
+                        <outlet property="yearTitleLabel" destination="M2l-9C-yVx" id="gqe-EM-9rt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmB-hT-k5J" userLabel="First Responder" sceneMemberID="firstResponder"/>

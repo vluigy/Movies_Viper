@@ -10,24 +10,43 @@ import UIKit
 import Kingfisher
 
 class MoviesListViewController: UIViewController {
-    
-    var presentor:ViewToPresenterProtocol?
-    
+    @IBOutlet weak var tryAgainButton: UIButton!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
-    let cellIdentifier = "moviesCell"
+    var presentor:ViewToPresenterProtocol?
+    var refreshControl = UIRefreshControl()
     var moviesList:[MoviesList] = []
-    
+    let cellIdentifier = "moviesCell"
     override func viewDidLoad() {
        super.viewDidLoad()
+       self.hideOrShowElements(state: true)
        navigationController?.setNavigationBarHidden(true, animated: false)
        self.moviesCollectionView.register(UINib(nibName:"MoviesCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         self.moviesCollectionView.delegate = self
         self.moviesCollectionView.dataSource = self
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        moviesCollectionView.addSubview(refreshControl)
         presentor?.startFetchingNotice()
     }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    @objc func refreshData(){
+      presentor?.startFetchingNotice()
+      refreshControl.endRefreshing()
+    }
+    
+    @IBAction func tryAgainButtonAction(_ sender: Any) {
+        presentor?.startFetchingNotice()
+    }
+    
+    func hideOrShowElements(state:Bool){
+        self.moviesCollectionView.isHidden = state
+        self.tryAgainButton.isHidden = !state
+        
+    }
+    
 }
 
 extension MoviesListViewController:PresenterToViewProtocol{
@@ -35,12 +54,16 @@ extension MoviesListViewController:PresenterToViewProtocol{
     func showMovies(movies: [MoviesList]) {
         self.moviesList = movies
         self.moviesCollectionView.reloadData()
+        self.hideOrShowElements(state: false)
+        Loading.hide()
     }
     
-    func showError() {
-        let alert = UIAlertController(title: "Alert", message: "Problem Fetching Notice", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+    func showError(error:String) {
+        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+        self.hideOrShowElements(state: true)
+        Loading.hide()
     }
 }
 

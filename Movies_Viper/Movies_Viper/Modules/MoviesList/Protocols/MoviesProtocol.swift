@@ -20,7 +20,7 @@ protocol ViewToPresenterProtocol: class{
 protocol PresenterToViewProtocol: class{
     //func showNotice(noticeArray:Array<NoticeModel>)
     func showMovies(movies:Array<MoviesList>)
-    func showError()
+    func showError(error:String)
 }
 
 protocol PresenterToRouterProtocol: class {
@@ -38,5 +38,5 @@ protocol PresenterToInteractorProtocol: class {
 protocol InteractorToPresenterProtocol: class {
     //func noticeFetchedSuccess(noticeModelArray:Array<NoticeModel>)
     func moviesFetchedSuccess(moviesModelArray:Array<MoviesList>)
-    func noticeFetchFailed()
+    func moviesListFetchFailed(error:String)
 }

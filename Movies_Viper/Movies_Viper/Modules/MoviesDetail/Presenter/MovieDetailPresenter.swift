@@ -17,6 +17,7 @@ class MoviePresenter:ViewToPresenterMovieProtocol{
     var router: PresenterToRouterMovieProtocol?
     
     func startFetchingMovie(id:Int) {
+        Loading.show()
         interactor?.getDetail(id: id)
     }
     
@@ -27,8 +28,8 @@ extension MoviePresenter:InteractorToPresenterMovieProtocol{
         view?.onMovieResponseSuccess(movieDetailModel: movieDetailInteractor)
     }
     
-    func movieFetchFailed() {
-        view?.onMovieResponseFailed(error: "Some Error message from api response")
+    func movieFetchFailed(error: String) {
+        view?.onMovieResponseFailed(error: error)
     }
     
     

@@ -18,6 +18,7 @@ class NoticePresenter:ViewToPresenterProtocol {
     var router: PresenterToRouterProtocol?
     
     func startFetchingNotice() {
+        Loading.show()
         interactor?.getList()
     }
     
@@ -33,8 +34,8 @@ extension NoticePresenter: InteractorToPresenterProtocol{
         view?.showMovies(movies: moviesModelArray)
     }
     
-    func noticeFetchFailed() {
-        view?.showError()
+    func moviesListFetchFailed(error:String) {
+        view?.showError(error: error)
     }
     
 }

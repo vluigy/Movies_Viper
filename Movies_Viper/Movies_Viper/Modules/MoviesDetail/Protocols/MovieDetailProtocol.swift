@@ -40,7 +40,7 @@ protocol PresenterToInteractorMovieProtocol:class {
 protocol InteractorToPresenterMovieProtocol:class {
     
     func movieFetchSuccess(movieDetailInteractor: MovieDetail)
-    func movieFetchFailed()
+    func movieFetchFailed(error:String)
     
 }
 

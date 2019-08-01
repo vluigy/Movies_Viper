@@ -37,12 +37,14 @@ class MovieInteractor:PresenterToInteractorMovieProtocol{
                 self?.presenter?.movieFetchSuccess(movieDetailInteractor: result)
                 UserDefaultsUtils.saveMovieDetail(movies: [result])
                 break
-            case .error(_):
+            case .error(let result):
                 let localDetail = UserDefaultsUtils.getMovieDetail().filter({$0.id == id})
                 if localDetail.count > 0{
                     self?.presenter?.movieFetchSuccess(movieDetailInteractor: localDetail[0])
                 }else{
-                    self?.presenter?.movieFetchFailed()
+                    print("result error")
+                    print(result)
+                    self?.presenter?.movieFetchFailed(error: result.message + " " + result.code)
                 }
                 break
             }

@@ -11,6 +11,11 @@ import Kingfisher
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var tryAgainButton: UIButton!
+    @IBOutlet weak var yearTitleLabel: UILabel!
+    @IBOutlet weak var directorTitleLabel: UILabel!
+    @IBOutlet weak var castTitleLabel: UILabel!
+    @IBOutlet weak var summaryTitleLabel: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var summaryTextView: UITextView!
     @IBOutlet weak var castLabel: UILabel!
@@ -21,13 +26,13 @@ class MovieDetailViewController: UIViewController {
     var id:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideOrShowElements(state: true)
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = UIColor.orange
         self.navigationController?.navigationBar.isTranslucent = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction(_:)))
         moviePresenter?.startFetchingMovie(id: id)
-       // showProgressIndicator(view: self.view)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,6 +43,23 @@ class MovieDetailViewController: UIViewController {
     }
     @objc func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func hideOrShowElements(state:Bool){
+        self.posterImageView.isHidden = state
+        self.summaryTextView.isHidden = state
+        self.castLabel.isHidden = state
+        self.directorLabel.isHidden = state
+        self.yearLabel.isHidden = state
+        self.summaryTitleLabel.isHidden = state
+        self.castTitleLabel.isHidden = state
+        self.yearTitleLabel.isHidden = state
+        self.directorTitleLabel.isHidden = state
+        self.tryAgainButton.isHidden = !state
+    
+    }
+    @IBAction func tryAgainAction(_ sender: Any) {
+        moviePresenter?.startFetchingMovie(id: id)
     }
 }
 
@@ -71,13 +93,15 @@ extension MovieDetailViewController:PresenterToViewMovieProtocol{
         self.yearLabel.text = yearString?.first ?? "0000"
         let title = detailMovie?.title
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(backAction(_:)))
+        self.hideOrShowElements(state: false)
+        Loading.hide()
     }
     
     func onMovieResponseFailed(error: String) {
-    
-        //hideProgressIndicator(view: self.view)
-        let alert = UIAlertController(title: "Alert", message: "Problem Fetching Notice", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+        self.hideOrShowElements(state: true)
+        Loading.hide()
+        let alert = UIAlertController(title: "Alert", message: error, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
     }

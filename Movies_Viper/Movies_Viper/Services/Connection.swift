@@ -36,7 +36,7 @@ class Connection {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         request.timeoutInterval = 15
-       // request.cachePolicy = .useProtocolCachePolicy
+        // request.cachePolicy = .useProtocolCachePolicy
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         Alamofire.request(request)
             .responseJSON { (response) in
@@ -56,28 +56,22 @@ class Connection {
                                 completion(.invalidData)
                             }
                         } else {
-                            print("Failure: \(httpResponse!.statusCode) \(url!)")
+                            //print("Failure: \(httpResponse!.statusCode) \(url!)")
                             completion(.responseUnsuccessful(code: httpResponse!.statusCode))
                         }
                     }
                 }else{
                     let httpResponse = response.result
-                    print("Failure no connection: \(String(describing: httpResponse.error))")
+                    //print("Failure no connection: \(String(describing: httpResponse.error))")
                     completion(.responseUnsuccessful(code: -1009))
                 }
         }
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    
-    
-    
-    
     static func urlEncode(params: [String: AnyObject]) -> String {
-        
         let customAllowedSet = NSCharacterSet(charactersIn: "!*'();:@&=+$,/?%#[]").inverted
         var pairs: [String] = []
-        
         for (key, value) in params {
             if value is Dictionary<String, AnyObject> {
                 for (subKey, subValue) in value as! Dictionary<String, AnyObject> {

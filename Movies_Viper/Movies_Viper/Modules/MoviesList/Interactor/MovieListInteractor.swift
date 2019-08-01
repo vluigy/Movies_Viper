@@ -37,12 +37,13 @@ class NoticeInteractor: PresenterToInteractorProtocol{
                 self?.presenter?.moviesFetchedSuccess(moviesModelArray: result.results)
                 UserDefaultsUtils.saveMovies(movies: result.results)
                 break
-            case .error(_):
+            case .error(let result):
                 let localMovies = UserDefaultsUtils.getMovies()
                 if localMovies.count > 0{
                     self?.presenter?.moviesFetchedSuccess(moviesModelArray: localMovies)
+                }else{
+                    self?.presenter?.moviesListFetchFailed(error: result.message + " " + result.code)
                 }
-                self?.presenter?.noticeFetchFailed()
                 break
             }
         }
