@@ -32,10 +32,9 @@ class NoticeRouter:PresenterToRouterProtocol{
         return UIStoryboard(name:"Main",bundle: Bundle.main)
     }
     
-    func pushToMovieScreen(navigationConroller navigationController:UINavigationController) {
-        print("push model")
-//        let movieModue = MovieRouter.createMovieModule()
-//        navigationController.pushViewController(movieModue,animated: true)
+    func pushToMovieScreen(navigationConroller navigationController:UINavigationController,id:Int) {
+        let movieModue = MovieRouter.createMovieModule(id:id)
+        navigationController.pushViewController(movieModue,animated: true)
     }
     
 }

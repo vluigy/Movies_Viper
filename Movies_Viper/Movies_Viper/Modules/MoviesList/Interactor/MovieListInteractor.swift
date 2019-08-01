@@ -52,7 +52,7 @@ class NoticeInteractor: PresenterToInteractorProtocol{
                     if decoded.results.count > 0 {
                         completion(.success(result: decoded))
                     } else {
-                        completion(.error(result: Error(code: "1001", message: "Invalid Data")))
+                        completion(.error(result: Error(code: "GM1001", message: "Invalid Data")))
                     }
                 } catch {
                     completion(.error(result: Error.init(code: "GM1000", message: Errors.errorServer)))

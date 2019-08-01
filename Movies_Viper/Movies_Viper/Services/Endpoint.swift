@@ -8,8 +8,10 @@
 
 import Foundation
 
-protocol Endpoint {
+protocol Endpoint  {
     var base: String { get }
     var path: String { get }
 }
+
+
 

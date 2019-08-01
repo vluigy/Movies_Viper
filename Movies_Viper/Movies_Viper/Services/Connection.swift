@@ -15,7 +15,7 @@ class Connection {
     static var DOMAIN: String?
     
     static func send(endpoint: Endpoint, values: [String: AnyObject]?, completion: @escaping (ConnectionResponse) -> Void) {
-        let url = URL(string: "\(endpoint.base)\(endpoint.path)")
+        var url = URL(string: "\(endpoint.base)\(endpoint.path)")
         guard let cookies = HTTPCookieStorage.shared.cookies else {return}
         
         var cookiesHeader = ""
@@ -28,8 +28,10 @@ class Connection {
             "Cookie": cookiesHeader
         ]
         
-        //let body = self.urlEncode(params: values)
-        
+        if values!.count > 0{
+            let path = "movie/\(values!["id"] ?? 0 as AnyObject)?\(apiKey)&append_to_response=credits"
+           url = URL(string: "\(endpoint.base)\(path)")
+        }
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -47,7 +49,6 @@ class Connection {
                         let httpResponse = response.response
                         if httpResponse!.statusCode == 200 {
                             print("Success: \(url!)")
-                            
                             if response.data!.count > 0 {
                                 print("ok")
                                 completion(.success(result: response.data!))

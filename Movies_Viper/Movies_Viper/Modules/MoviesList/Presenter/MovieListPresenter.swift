@@ -21,8 +21,8 @@ class NoticePresenter:ViewToPresenterProtocol {
         interactor?.getList()
     }
     
-    func showMovieController(navigationController: UINavigationController) {
-        router?.pushToMovieScreen(navigationConroller:navigationController)
+    func showMovieController(navigationController: UINavigationController,id:Int) {
+        router?.pushToMovieScreen(navigationConroller:navigationController, id:id)
     }
     
 }

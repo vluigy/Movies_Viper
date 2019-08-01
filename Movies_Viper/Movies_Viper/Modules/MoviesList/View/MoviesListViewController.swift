@@ -71,8 +71,8 @@ extension MoviesListViewController: UICollectionViewDelegate,UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("touch")
-      //  presentor?.showMovieController(navigationController: navigationController!)
+        let id = self.moviesList[indexPath.row].id
+        presentor?.showMovieController(navigationController: navigationController!,id: id)
 
     }
     
