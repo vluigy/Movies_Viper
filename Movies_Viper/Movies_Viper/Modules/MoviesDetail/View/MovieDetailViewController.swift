@@ -25,7 +25,7 @@ class MovieDetailViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = UIColor.orange
         self.navigationController?.navigationBar.isTranslucent = false
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(backAction(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction(_:)))
         moviePresenter?.startFetchingMovie(id: id)
        // showProgressIndicator(view: self.view)
     }

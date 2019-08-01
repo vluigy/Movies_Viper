@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MovieCrew: Decodable {
+struct MovieCrew: Codable {
     let name: String
     let job: String
     
@@ -21,5 +21,16 @@ struct MovieCrew: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.job = try container.decode(String.self, forKey: .job)
+    }
+    
+    init(name: String, job:String) {
+        self.name = name
+        self.job = job
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(job, forKey: .job)
     }
 }

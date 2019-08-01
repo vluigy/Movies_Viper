@@ -35,10 +35,9 @@ class Connection {
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
-        //request.httpBody = body.data(using: String.Encoding.utf8, allowLossyConversion: true)
         request.timeoutInterval = 15
-        request.cachePolicy = .useProtocolCachePolicy
-        
+       // request.cachePolicy = .useProtocolCachePolicy
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
         Alamofire.request(request)
             .responseJSON { (response) in
                 print("send2")

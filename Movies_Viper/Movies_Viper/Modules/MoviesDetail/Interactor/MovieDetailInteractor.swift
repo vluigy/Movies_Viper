@@ -9,8 +9,6 @@
 import Foundation
 import Alamofire
 
-var idMovie:Int = 0
-
 enum MoviesDetailAction {
     case getMovieDetail
 }
@@ -22,29 +20,30 @@ extension MoviesDetailAction: Endpoint {
     }
     var path: String {
         switch self {
-        case .getMovieDetail: return "movie/\(idMovie)?\(apiKey)&append_to_response=credits"
+        case .getMovieDetail: return "movie/?\(apiKey)&append_to_response=credits"
         }
     }
-    
 }
 
 class MovieInteractor:PresenterToInteractorMovieProtocol{
-    
     var presenter: InteractorToPresenterMovieProtocol?
     
     func getDetail(id:Int){
         self.getDetailRequest(id: id) { [weak self] response in
-            idMovie = id
-        
+            
             guard let _ = self else {return}
             switch response {
             case .success(let result):
-                //self?.presenter?.moviesFetchedSuccess(moviesModelArray: result.results)
                 self?.presenter?.movieFetchSuccess(movieDetailInteractor: result)
+                UserDefaultsUtils.saveMovieDetail(movies: [result])
                 break
             case .error(_):
-                //self?.presenter?.noticeFetchFailed()
-                self?.presenter?.movieFetchFailed()
+                let localDetail = UserDefaultsUtils.getMovieDetail().filter({$0.id == id})
+                if localDetail.count > 0{
+                    self?.presenter?.movieFetchSuccess(movieDetailInteractor: localDetail[0])
+                }else{
+                    self?.presenter?.movieFetchFailed()
+                }
                 break
             }
         }
