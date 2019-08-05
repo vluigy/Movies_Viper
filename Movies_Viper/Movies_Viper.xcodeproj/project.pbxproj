@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3036A85122F88B21003A110E /* loading@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3036A85022F88B21003A110E /* loading@3x.gif */; };
 		3096D03A22F103A5008C404D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03922F103A5008C404D /* Connection.swift */; };
 		3096D03C22F103B5008C404D /* ConnectionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03B22F103B5008C404D /* ConnectionResponse.swift */; };
 		3096D03E22F103CC008C404D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03D22F103CC008C404D /* Endpoint.swift */; };
@@ -22,7 +23,6 @@
 		3096D05522F22E2D008C404D /* MovieCrewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05422F22E2D008C404D /* MovieCrewModel.swift */; };
 		3096D05722F2932D008C404D /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05622F2932D008C404D /* UserDefaultsUtils.swift */; };
 		3096D05B22F2B25C008C404D /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05A22F2B25C008C404D /* Loading.swift */; };
-		3096D05D22F2B2D3008C404D /* loading@3x.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3096D05C22F2B2D3008C404D /* loading@3x.gif */; };
 		3096D05F22F2B327008C404D /* Image+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05E22F2B327008C404D /* Image+Gif.swift */; };
 		3096D06722F3295A008C404D /* Movies_ViperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D06622F3295A008C404D /* Movies_ViperUITests.swift */; };
 		3096D07522F3296E008C404D /* Movies_ViperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D07422F3296E008C404D /* Movies_ViperTests.swift */; };
@@ -41,7 +41,6 @@
 		3096D08F22F33688008C404D /* MoviesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3097B2BF22F0B35900EAC6DA /* MoviesProtocol.swift */; };
 		3096D09022F3371F008C404D /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D04322F14CD0008C404D /* Messages.swift */; };
 		3096D09122F3371F008C404D /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05622F2932D008C404D /* UserDefaultsUtils.swift */; };
-		3096D09222F3371F008C404D /* loading@3x.gif in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05C22F2B2D3008C404D /* loading@3x.gif */; };
 		3096D09322F3371F008C404D /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05A22F2B25C008C404D /* Loading.swift */; };
 		3096D09422F3371F008C404D /* Image+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D05E22F2B327008C404D /* Image+Gif.swift */; };
 		3096D09522F3371F008C404D /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3096D03922F103A5008C404D /* Connection.swift */; };
@@ -120,6 +119,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3036A85022F88B21003A110E /* loading@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "loading@3x.gif"; sourceTree = "<group>"; };
 		3096D03922F103A5008C404D /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
 		3096D03B22F103B5008C404D /* ConnectionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionResponse.swift; sourceTree = "<group>"; };
 		3096D03D22F103CC008C404D /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -135,7 +135,6 @@
 		3096D05422F22E2D008C404D /* MovieCrewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCrewModel.swift; sourceTree = "<group>"; };
 		3096D05622F2932D008C404D /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 		3096D05A22F2B25C008C404D /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
-		3096D05C22F2B2D3008C404D /* loading@3x.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "loading@3x.gif"; path = "../../../../../Downloads/loading@3x.gif"; sourceTree = "<group>"; };
 		3096D05E22F2B327008C404D /* Image+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Gif.swift"; sourceTree = "<group>"; };
 		3096D06422F3295A008C404D /* Movies_ViperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Movies_ViperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3096D06622F3295A008C404D /* Movies_ViperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies_ViperUITests.swift; sourceTree = "<group>"; };
@@ -224,8 +223,8 @@
 			children = (
 				3096D04322F14CD0008C404D /* Messages.swift */,
 				3096D05622F2932D008C404D /* UserDefaultsUtils.swift */,
-				3096D05C22F2B2D3008C404D /* loading@3x.gif */,
 				3096D05A22F2B25C008C404D /* Loading.swift */,
+				3036A85022F88B21003A110E /* loading@3x.gif */,
 				3096D05E22F2B327008C404D /* Image+Gif.swift */,
 			);
 			path = Static;
@@ -647,7 +646,7 @@
 				3097B29E22F099E300EAC6DA /* Assets.xcassets in Resources */,
 				3096D04B22F1FD31008C404D /* MoviesCollectionViewCell.xib in Resources */,
 				3096D0F522F381F8008C404D /* MoviesTableViewCell.xib in Resources */,
-				3096D05D22F2B2D3008C404D /* loading@3x.gif in Resources */,
+				3036A85122F88B21003A110E /* loading@3x.gif in Resources */,
 				3097B29C22F099E100EAC6DA /* Main.storyboard in Resources */,
 				3097B2B622F0B05E00EAC6DA /* Movies.storyboard in Resources */,
 			);
@@ -722,7 +721,6 @@
 				3096D0A222F33777008C404D /* MovieCrewModel.swift in Sources */,
 				3096D09022F3371F008C404D /* Messages.swift in Sources */,
 				3096D09122F3371F008C404D /* UserDefaultsUtils.swift in Sources */,
-				3096D09222F3371F008C404D /* loading@3x.gif in Sources */,
 				3096D09322F3371F008C404D /* Loading.swift in Sources */,
 				3096D09422F3371F008C404D /* Image+Gif.swift in Sources */,
 				3096D0D522F34134008C404D /* MovieListModelTest.swift in Sources */,
