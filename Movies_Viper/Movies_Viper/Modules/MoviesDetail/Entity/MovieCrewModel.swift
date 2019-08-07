@@ -12,7 +12,7 @@ struct MovieCrew: Codable {
     let name: String
     let job: String
     
-    private enum CodingKeys: CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case name
         case job
     }
@@ -28,9 +28,5 @@ struct MovieCrew: Codable {
         self.job = job
     }
     
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(job, forKey: .job)
-    }
+
 }
