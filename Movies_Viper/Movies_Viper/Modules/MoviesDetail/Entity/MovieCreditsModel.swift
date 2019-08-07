@@ -12,31 +12,14 @@ struct MovieCredits: Codable {
     let cast: [MovieCast]
     let crew: [MovieCrew]
    
-    private enum CodingKeys: CodingKey {
-        case cast
-        case crew
+   private enum CodingKeys: String, CodingKey {
+        case cast = "cast"
+        case crew = "crew"
     }
     
     init(cast: [MovieCast], crew: [MovieCrew]) {
         self.cast = cast
         self.crew = crew
     }
-    
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.cast = try container.decode([MovieCast].self, forKey: .cast)
-        self.crew = try container.decode([MovieCrew].self, forKey: .crew)
-    }
-
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(cast, forKey: .cast)
-        try container.encode(crew, forKey: .crew)
-       
-    }
-    
-    
     
 }

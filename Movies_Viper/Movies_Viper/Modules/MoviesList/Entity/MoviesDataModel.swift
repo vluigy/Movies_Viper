@@ -7,28 +7,20 @@
 //
 
 import Foundation
-struct MoviesData: Decodable {
+
+class MoviesData: Codable {
+  
     let page: Int
     let totalResults: Int
     let totalPages: Int
     let results: [MoviesList]
     
     
-    private enum CodingKeys: CodingKey {
-        case page
-        case total_results
-        case total_pages
+    private enum CodingKeys: String, CodingKey {
+        case page = "page"
+        case totalResults = "total_results"
+        case totalPages = "total_pages"
         case results
-        
-        
     }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.page = try container.decode(Int.self, forKey: .page)
-        self.totalResults = try container.decode(Int.self, forKey: .total_results)
-        self.totalPages = try container.decode(Int.self, forKey: .total_pages)
-        self.results = try container.decode([MoviesList].self, forKey: .results)
-        
-    }
+
 }
