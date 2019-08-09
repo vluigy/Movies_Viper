@@ -48,8 +48,8 @@ class MoviesListViewController: UIViewController {
     }
     
     @IBAction func searchButtonAction(_ sender: Any) {
-        let route =  SearchRouter.createModule()
-        route.presentor?.showMovieController(navigationController: navigationController!,title: "")
+        //let route =  SearchRouter.createModule()
+        //route.presentor?.showMovieController(navigationController: navigationController!,title: "")
     }
     
     func hideOrShowElements(state:Bool){

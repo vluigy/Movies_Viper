@@ -16,15 +16,16 @@ class MovieSearchViewController: UIViewController {
     var movies:[MoviesList] = []
     var presentor:ViewToPresenterSearchProtocol?
     var detail:ViewToPresenterProtocol?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.initializer()
         self.navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.black
         navigationController?.navigationBar.tintColor = UIColor.orange
         self.navigationController?.navigationBar.isTranslucent = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backAction(_:)))
         moviesTableView.register(UINib(nibName: "MoviesTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-
         moviesTableView.delegate = self
         moviesTableView.dataSource = self
         moviesTableView.tableFooterView = UIView(frame: .zero)
@@ -34,8 +35,6 @@ class MovieSearchViewController: UIViewController {
         textFieldInsideSearchBar?.textColor = UIColor.orange
         let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.value(forKey: "placeholderLabel") as? UILabel
         textFieldInsideSearchBarLabel?.textColor = UIColor.orange
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +48,20 @@ class MovieSearchViewController: UIViewController {
     
     @objc func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    func initializer(){
+        let presenter: ViewToPresenterSearchProtocol & InteractorToPresenterSearchProtocol = SearchPresenter()
+        let interactor: PresenterToInteractorSearchProtocol = SearchInteractor()
+        let router:PresenterToRouterSearchProtocol = SearchRouter()
+        presentor = presenter
+        presentor?.view = self
+        presenter.router = router
+        presenter.interactor = interactor
+        interactor.presenter = presenter
     }
 
 }
@@ -71,7 +84,6 @@ extension MovieSearchViewController:PresenterToViewSearchProtocol{
 extension MovieSearchViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.searchBar.endEditing(true)
-        
         if self.searchBar.text! != ""{
         let originalString = self.searchBar.text!
         let escapedString = originalString.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
@@ -82,9 +94,9 @@ extension MovieSearchViewController: UISearchBarDelegate{
 }
 
 extension MovieSearchViewController:UITableViewDelegate, UITableViewDataSource{
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count

@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 class SearchPresenter:ViewToPresenterSearchProtocol{
-    
-    
+   
     var view: PresenterToViewSearchProtocol?
     
     var interactor: PresenterToInteractorSearchProtocol?
