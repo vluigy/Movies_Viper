@@ -76,7 +76,7 @@
                                     <color key="titleColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="searchButtonAction:" destination="tkc-QZ-Xo8" eventType="touchUpInside" id="vrd-QF-6zz"/>
+                                    <segue destination="GRV-ir-IYI" kind="show" id="tYy-oz-WmZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmB-hT-k5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1877" y="19"/>
+            <point key="canvasLocation" x="1862" y="-352"/>
         </scene>
         <!--Movie Search View Controller-->
         <scene sceneID="jwD-nn-EA6">
@@ -302,7 +302,7 @@
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D37-WW-YhQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D37-WW-YhQ">
                                 <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.72941176470000002" green="0.29411764709999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bIT-xV-oL9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2693" y="19"/>
+            <point key="canvasLocation" x="1861" y="330"/>
         </scene>
     </scenes>
     <resources>

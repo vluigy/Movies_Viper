@@ -20,9 +20,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="9d6-Oc-pfz">
-                        <rect key="frame" x="10" y="0.0" width="99" height="150"/>
+                        <rect key="frame" x="10" y="0.0" width="99" height="149.5"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="150" id="Rdu-Ma-RXb"/>
                             <constraint firstAttribute="width" constant="99" id="SZu-KA-TBE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gTd-jI-s3H"/>
@@ -52,7 +51,6 @@
                     <constraint firstItem="9d6-Oc-pfz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kPb-5e-vcH"/>
                     <constraint firstAttribute="bottom" secondItem="9d6-Oc-pfz" secondAttribute="bottom" id="lox-v1-HMS"/>
                     <constraint firstItem="I3D-i0-Ajj" firstAttribute="top" secondItem="iFF-NY-9ma" secondAttribute="bottom" constant="19" id="vrb-Gz-tKf"/>
-                    <constraint firstItem="I3D-i0-Ajj" firstAttribute="top" secondItem="iFF-NY-9ma" secondAttribute="bottom" constant="19" id="wKJ-Bk-htN"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

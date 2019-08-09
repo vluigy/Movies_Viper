@@ -30,6 +30,7 @@ class SearchRouter:PresenterToRouterSearchProtocol{
     }
     
     
+    
     func pushToMovieScreen(navigationConroller navigationController:UINavigationController,title: String) {
         let movieModue = SearchRouter.createModule()
         navigationController.pushViewController(movieModue,animated: true)
