@@ -47,10 +47,6 @@ class MoviesListViewController: UIViewController {
         presentor?.startFetchingNotice()
     }
     
-    @IBAction func searchButtonAction(_ sender: Any) {
-        //let route =  SearchRouter.createModule()
-        //route.presentor?.showMovieController(navigationController: navigationController!,title: "")
-    }
     
     func hideOrShowElements(state:Bool){
         self.moviesCollectionView.isHidden = state

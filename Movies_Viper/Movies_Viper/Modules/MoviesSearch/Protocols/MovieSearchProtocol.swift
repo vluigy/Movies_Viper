@@ -19,7 +19,6 @@ protocol ViewToPresenterSearchProtocol: class{
 }
 
 protocol PresenterToViewSearchProtocol: class{
-    //func showNotice(noticeArray:Array<NoticeModel>)
     func showMovies(movies:Array<MoviesList>)
     func showError(error:String)
 }
@@ -29,7 +28,6 @@ protocol PresenterToViewSearchProtocol: class{
 protocol PresenterToRouterSearchProtocol: class {
     static func createModule()-> MovieSearchViewController
     func pushToMovieScreen(navigationConroller:UINavigationController, title:String)
-    //static func createSearchModule(title:String)->MovieSearchViewController
 }
 
 protocol PresenterToInteractorSearchProtocol: class {
@@ -38,7 +36,6 @@ protocol PresenterToInteractorSearchProtocol: class {
 }
 
 protocol InteractorToPresenterSearchProtocol: class {
-    //func noticeFetchedSuccess(noticeModelArray:Array<NoticeModel>)
     func moviesFetchedSuccess(moviesModelArray:Array<MoviesList>)
     func moviesListFetchFailed(error:String)
 }
