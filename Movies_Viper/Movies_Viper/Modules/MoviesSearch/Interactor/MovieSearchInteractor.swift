@@ -11,7 +11,7 @@ import Alamofire
 
 
 enum MoviesActionSearch {
-    case getMoviesList
+    case getMoviesList(text:String)
 }
 
 extension MoviesActionSearch: Endpoint {
@@ -20,7 +20,7 @@ extension MoviesActionSearch: Endpoint {
     }
     var path: String {
         switch self {
-        case .getMoviesList: return "discover/movie?\(apiKey)"
+        case .getMoviesList(let text): return "search/movie?\(apiKey)&query=\(text)"
         }
     }
 }
@@ -47,8 +47,7 @@ class SearchInteractor: PresenterToInteractorSearchProtocol{
     
     
     func getDetailRequest(title:String, completion: @escaping (_ response: ModelResponse<MoviesData>) -> Void) {
-        let values = ["title": title]
-        Connection.send(endpoint: MoviesActionSearch.getMoviesList, values: values) { (response) in
+        Connection.send(endpoint: MoviesActionSearch.getMoviesList(text: title), values: [:]) { (response) in
             switch response {
             case .success(let result):
                 do {

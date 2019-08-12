@@ -15,9 +15,8 @@ class Connection {
     static var DOMAIN: String?
     
     static func send(endpoint: Endpoint, values: [String: Any]?, completion: @escaping (ConnectionResponse) -> Void) {
-        var url = URL(string: "\(endpoint.base)\(endpoint.path)")
+        let url = URL(string: "\(endpoint.base)\(endpoint.path)")
         guard let cookies = HTTPCookieStorage.shared.cookies else {return}
-        
         var cookiesHeader = ""
         for cookie:HTTPCookie in cookies {
             cookiesHeader += "\(cookie.name)=\(cookie.value); "
@@ -27,17 +26,6 @@ class Connection {
             "Content-Type": "application/x-www-form-urlencoded",
             "Cookie": cookiesHeader
         ]
-       //https://api.themoviedb.org/3/search/movie?api_key=b3f734c1d096f6c06fadf106c5f14e29&query=the+avengers
-        if values?.count ?? 0 > 0{
-            if values!.first!.key == "title"{
-                let path = "search/movie?\(apiKey)&query=\((values!["title"] ?? 0 as AnyObject))"
-                url = URL(string: "\(endpoint.base)\(path)")
-            }else  if values!.first!.key == "id"{
-                let path = "movie/\(values!["id"] ?? 0 as AnyObject)?\(apiKey)&append_to_response=credits"
-                url = URL(string: "\(endpoint.base)\(path)")
-            }
-        }
-
         var request = URLRequest(url: url!)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
@@ -57,13 +45,11 @@ class Connection {
                                 completion(.invalidData)
                             }
                         } else {
-                            //print("Failure: \(httpResponse!.statusCode) \(url!)")
                             completion(.responseUnsuccessful(code: httpResponse!.statusCode))
                         }
                     }
                 }else{
                     _ = response.result
-                    //print("Failure no connection: \(String(describing: httpResponse.error))")
                     completion(.responseUnsuccessful(code: -1009))
                 }
         }

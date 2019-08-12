@@ -50,7 +50,6 @@ public class Loading: UIView {
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.textColor = UIColor.white
-        // blurView.contentView.addSubview(titleLabel)
         isUserInteractionEnabled = true
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 enum MoviesDetailAction {
-    case getMovieDetail
+    case getMovieDetail(id: Int)
 }
 
 extension MoviesDetailAction: Endpoint {
@@ -20,7 +20,8 @@ extension MoviesDetailAction: Endpoint {
     }
     var path: String {
         switch self {
-        case .getMovieDetail: return "movie/?\(apiKey)&append_to_response=credits"
+        case .getMovieDetail(let id):
+            return "movie/\(id)?\(apiKey)&append_to_response=credits"
         }
     }
 }
@@ -50,8 +51,7 @@ class MovieInteractor:PresenterToInteractorMovieProtocol{
     }
     
     func getDetailRequest(id:Int, completion: @escaping (_ response: ModelResponse<MovieDetail>) -> Void) {
-        let values = ["id": id] as [String : Any]
-        Connection.send(endpoint: MoviesDetailAction.getMovieDetail, values: values) { (response) in
+        Connection.send(endpoint: MoviesDetailAction.getMovieDetail(id: id), values: [:]) { (response) in
             switch response {
             case .success(let result):
                 do {
