@@ -1,0 +1,2 @@
+//run this command in terminal for install libraries
+carthage update --platform ios
